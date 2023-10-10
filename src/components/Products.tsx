@@ -2,6 +2,7 @@ import { ProductProps } from "../../type";
 import Image from "next/image";
 import { HiShoppingCart } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
+import FormattedPrice from "./FormattedPrice";
 
 const Products = ({ productData }: any) => {
   return (
@@ -38,11 +39,27 @@ const Products = ({ productData }: any) => {
                     <FaHeart />
                   </span>
                 </div>
-                {
-                  isNew && <p className="absolute top-0 right-0 text-amazon_blue font-medium text-xs tracking-wide animate-bounce">!save {oldPrice - price}</p>
-                }
+                {isNew && (
+                  <p className="absolute top-0 right-0 text-amazon_blue font-medium text-xs tracking-wide animate-bounce">
+                    !save <FormattedPrice amoat={oldPrice - price} />
+                  </p>
+                )}
               </div>
               <hr />
+              <div className="px-4 py-3 flex flex-col gap-1">
+                <p className="text-xs text-gray-500 tracking-wide">
+                  {category}
+                </p>
+                <p className="text-base font-medium">{title}</p>
+                <p className="flex items-center gap-2">
+                  <span className="text-sm line-through">
+                    <FormattedPrice amoat={oldPrice} />
+                  </span>
+                  <span className="text-amazon_blue font-semibold">
+                    <FormattedPrice amoat={price} />
+                  </span>
+                </p>
+              </div>
             </div>
           );
         }
