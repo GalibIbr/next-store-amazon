@@ -6,8 +6,6 @@ import CartProduct from "@/components/CartProduct";
 const CartPage = () => {
   const { productData } = useSelector((state: StateProps) => state.next);
 
-  console.log(productData);
-
   return (
     <div className="max-w-screen-2xl mx-auto px-6 grid grid-cols-5 gap-10 py-4">
       {productData.length > 0 ? (
