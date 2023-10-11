@@ -7,8 +7,10 @@ import { SlLocationPin } from "react-icons/sl";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../../type";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Header = () => {
+  const { data: session, } = useSession();
   const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next
   );
@@ -42,7 +44,7 @@ const Header = () => {
           </span>
         </div>
         {/* signin */}
-        <div className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
+        <div onClick={() => signIn()} className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
           <p>Hello, sign in</p>
           <p className="text-white font-bold flex items-center">
             Account & List{" "}
