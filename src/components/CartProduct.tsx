@@ -4,7 +4,7 @@ import FormattedPrice from "./FormattedPrice";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { decreaseQuantity, increaseQuantity } from "@/store/nextSlice";
+import { decreaseQuantity, deleteProduct, increaseQuantity } from "@/store/nextSlice";
 
 interface Item {
   brand: string;
@@ -89,7 +89,7 @@ const CartProduct = ({ item }: cartProductsProps) => {
                 <LuMinus />
               </span>
             </div>
-            <div className="flex items-center text-sm font-medium text-gray-400 hover:text-red-600 cursor-pointer">
+            <div onClick={() => dispatch(deleteProduct(item._id))} className="flex items-center text-sm font-medium text-gray-400 hover:text-red-600 cursor-pointer">
               <IoMdClose className="mt-[2px]" /> <p>remove</p>
             </div>
           </div>
