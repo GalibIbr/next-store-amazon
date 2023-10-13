@@ -1,15 +1,15 @@
 import { resetFavoriteData } from "@/store/nextSlice";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 
 const ResetFavoriteItems = () => {
-     const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleResetCart = () => {
-   const confirmReset = window.confirm (
+    const confirmReset = window.confirm(
       "Are you sure to reset your items from the cart?"
-   )
-   if (confirmReset) {
-      dispatch(resetFavoriteData())
-   }
+    );
+    if (confirmReset) {
+      dispatch(resetFavoriteData());
+    }
   };
 
   return (
@@ -19,6 +19,6 @@ const ResetFavoriteItems = () => {
       reset cart
     </button>
   );
-}
+};
 
-export default ResetFavoriteItems
+export default ResetFavoriteItems;

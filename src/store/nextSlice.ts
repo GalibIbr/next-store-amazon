@@ -69,7 +69,7 @@ export const nextSlice = createSlice({
       state.productData = [];
     },
     resetFavoriteData: (state) => {
-      state.productData = [];
+      state.favoriteData = [];
     },
     
     addUser: (state, action) => {
