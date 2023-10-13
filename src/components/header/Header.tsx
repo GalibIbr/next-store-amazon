@@ -104,17 +104,15 @@ const Header = () => {
                               quantity: 1,
                             },
                           }}
-                          onClick={() => setSearchQuery("")}
-                          >
-                            <SearchProducts item={item} />
-                          
+                          onClick={() => setSearchQuery("")}>
+                          <SearchProducts item={item} />
                         </Link>
                       );
                     })}
                 </>
               ) : (
-                <div>
-                  <p>no products</p>
+                <div className="bg-gray-50 flex items-center justify-center py-10 rounded-lg shadow-lg">
+                  <p className="text-xl font-semibold animate-bounce">Nothing is matches with your search keywords. Please try again</p>
                 </div>
               )}
             </div>
@@ -148,7 +146,7 @@ const Header = () => {
           </div>
         )}
         {/* favorite */}
-        <div className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative">
+        <Link href={"/favorite"} className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative">
           <p>Marked</p>
           <p className="text-white font-bold">& Favorite</p>
           {favoriteData.length > 0 && (
@@ -156,7 +154,7 @@ const Header = () => {
               {favoriteData.length}
             </span>
           )}
-        </div>
+        </Link>
         {/* cart */}
         <Link
           href={"/cart"}
