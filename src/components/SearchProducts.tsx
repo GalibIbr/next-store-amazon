@@ -19,15 +19,15 @@ type Item = {
 
 const SearchProducts = ({ item }: Item) => {
   return (
-    <div className="flex items-center gap-4">
-      <img className="w-24" src={item.image} alt="product image" />
+    <div className="flex items-center gap-1 md:gap-4">
+      <img className="md:w-24 w-6" src={item.image} alt="product image" />
       <div>
-        <p className="text-xs -mb-1">
+        <p className="hidden md:flex text-xs -mb-1">
           {item.brand}_{item.category}
         </p>
-        <p className="text-lg font-medium">{item.title}</p>
-        <p className="text-xs">{item.description.substring(0, 100)}</p>
-        <p className="text-sm flex items-center gap-1">
+        <p className="text-[12px] md:text-lg md:font-medium">{item.title}</p>
+        <p className="hidden md:flex text-xs">{item.description.substring(0, 100)}</p>
+        <p className="text-sm hidden md:flex items-center gap-1">
           price:{" "}
           <span className="font-semibold">
             <FormattedPrice amoat={item.price} />
@@ -37,7 +37,7 @@ const SearchProducts = ({ item }: Item) => {
           </span>
         </p>
       </div>
-        <div className="flex-1 text-right px-4">
+        <div className="hidden md:flex flex-1 text-right px-4">
           <p className="text-base font-semibold animate-bounce text-amazon_blue">
             Save <FormattedPrice amoat={item.oldPrice - item.price} />
           </p>
