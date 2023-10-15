@@ -56,7 +56,7 @@ const Header = () => {
         <Link
           href={"/"}
           className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex items-center justify-center h-[70%]">
-          <Image className="w-28 object-cover mt-1" src={logo} alt="logoImg" />
+          <Image className="w-[74px] md:w-[112px] object-cover mt-1" src={logo} alt="logoImg" />
         </Link>
         {/* delivery */}
         <div className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 items-center justify-center h-[70%] hidden xl:inline-flex gap-1">
@@ -67,7 +67,7 @@ const Header = () => {
           </div>
         </div>
         {/* serchbar */}
-        <div className="flex-1 h-10 hidden md:inline-flex items-center justify-between relative">
+        <div className="flex-1 h-10 inline-flex items-center justify-between relative">
           <input
             onChange={handleSearch}
             value={searchQuery}
@@ -121,7 +121,7 @@ const Header = () => {
         </div>
         {/* signin */}
         {userInfo ? (
-          <div className="flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
+          <div className="hidden md:flex items-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] gap-1">
             <img
               src={userInfo.image}
               alt="userImage"
@@ -135,7 +135,7 @@ const Header = () => {
         ) : (
           <div
             onClick={() => signIn()}
-            className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
+            className="text-xl text-gray-100 hidden md:flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%]">
             <p>Hello, sign in</p>
             <p className="text-white font-bold flex items-center">
               Account & List{" "}
@@ -146,7 +146,7 @@ const Header = () => {
           </div>
         )}
         {/* favorite */}
-        <Link href={"/favorite"} className="text-xl text-gray-100 flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative">
+        <Link href={"/favorite"} className="text-xl text-gray-100 hidden md:flex flex-col justify-center px-2 border border-transparent hover:border-white cursor-pointer duration-300 h-[70%] relative">
           <p>Marked</p>
           <p className="text-white font-bold">& Favorite</p>
           {favoriteData.length > 0 && (
@@ -164,7 +164,7 @@ const Header = () => {
             src={cartIcon}
             alt="cartImg"
           />
-          <p className="text-xs text-white font-bold mt-3">Card</p>
+          <p className="text-xs text-white hidden md:flex font-bold mt-3">Card</p>
           <span className="absolute text-amazon_yellow text-sm top-2 left-[29px] font-semibold">
             {productData ? productData.length : 0}
           </span>
